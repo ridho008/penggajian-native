@@ -1,3 +1,11 @@
+<?php 
+session_start();
+if(isset($_SESSION['id'])) {
+  header("Location: index.php");
+  exit;
+}
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -24,6 +32,41 @@
             Selamat Datang Di Aplikasi Penggajian Pegawai
           </div>
           <div class="card-body">
+            <?php 
+            if(isset($_POST['masuk'])) {
+              $username = htmlspecialchars($_POST['username']);
+              $password = htmlspecialchars(md5($_POST['password']));
+
+              if($username == '' || $password == '') { ?>
+                <div class="alert alert-danger" role="alert">
+                  Form tidak boleh kosong!
+                </div>
+              <?php
+              } else {
+                // jika sudah mengisi semua form
+                require_once 'config/koneksi.php';
+                $sqlLogin = mysqli_query($konek, "SELECT * FROM admin WHERE username = '$username' AND password = '$password'") or die(mysqli_error($konek));
+                $jml = mysqli_num_rows($sqlLogin);
+                $d = mysqli_fetch_assoc($sqlLogin);
+
+                // jika user & pas ada Di DB
+                if($jml > 0) {
+                  $_SESSION['id'] = $d['id_admin'];
+                  $_SESSION['user'] = $d['username'];
+                  $_SESSION['nama'] = $d['nama_lengkap'];
+
+                  header("Location: index.php");
+                } else { ?>
+                <!-- jika akun tidak di termukan di DB -->
+                <div class="alert alert-danger" role="alert">
+                  Username & Password Salah!
+                </div>
+                <?php
+                }
+              }
+            }
+
+            ?>
             <form action="" method="post" class="g-3 needs-validation" novalidate>
               <div class="mb-3">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-people-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -46,7 +89,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <button type="submit" class="btn btn-primary float-right">Masuk</button>
+                <button type="submit" name="masuk" class="btn btn-primary float-right">Masuk</button>
               </div>
             </form>
           </div>

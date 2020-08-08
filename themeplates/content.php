@@ -7,6 +7,18 @@ if($page) {
 		case 'hadmin':
 			require_once 'page/admin/hadmin.php';
 			break;
+		case 'jabatan':
+			require_once 'page/jabatan/index.php';
+			break;
+		case 'jtambah':
+			require_once 'page/jabatan/jtambah.php';
+			break;
+		case 'jubah':
+			require_once 'page/jabatan/jubah.php';
+			break;
+		case 'jhapus':
+			require_once 'page/jabatan/jhapus.php';
+			break;
 		
 		default:
 			require_once './index.php';

@@ -67,19 +67,28 @@ if(isset($_POST['ubah'])) {
 				        </button>
 				      </div>
 				      <div class="modal-body">
-				        <form action="" method="post">
+				        <form action="" method="post" class="needs-validation" novalidate>
 				        	<input type="text" name="id" value="<?= $pecahAdmin['id_admin']; ?>">
 								  <div class="mb-3">
 				        		<label for="nama" class="form-label">Nama Lengkap</label>
 								  	<input type="text" name="nama" class="form-control" id="nama" placeholder="Masukan nama lengkap" required value="<?= $pecahAdmin['nama_lengkap']; ?>">
+								  	<div class="valid-feedback">
+								      Terlihat bagus!
+								    </div>
 									</div>
 				        	<div class="mb-3">
 				        		<label for="username" class="form-label">Username</label>
 								  	<input type="text" name="username" class="form-control" id="username" placeholder="Masukan username" required value="<?= $pecahAdmin['username']; ?>">
+								  	<div class="valid-feedback">
+								      Terlihat bagus!
+								    </div>
 									</div>
 									<div class="mb-3">
 				        		<label for="password" class="form-label">Password</label>
 								  	<input type="password" name="password" class="form-control" id="password" placeholder="Masukan password lengkap" required value="<?= $pecahAdmin['password']; ?>">
+								  	<div class="valid-feedback">
+								      Terlihat bagus!
+								    </div>
 									</div>
 						      <div class="modal-footer">
 						        <button type="submit" name="ubah" class="btn btn-primary">Ubah</button>
@@ -107,18 +116,27 @@ if(isset($_POST['ubah'])) {
         </button>
       </div>
       <div class="modal-body">
-        <form action="" method="post">
+        <form action="" method="post" class="needs-validation" novalidate>
 				  <div class="mb-3">
         		<label for="nama" class="form-label">Nama Lengkap</label>
 				  	<input type="text" name="nama" class="form-control" id="nama" placeholder="Masukan nama lengkap" required>
+				  	<div class="valid-feedback">
+				      Terlihat bagus!
+				    </div>
 					</div>
         	<div class="mb-3">
         		<label for="username" class="form-label">Username</label>
 				  	<input type="text" name="username" class="form-control" id="username" placeholder="Masukan username" required>
+				  	<div class="valid-feedback">
+				      Terlihat bagus!
+				    </div>
 					</div>
 					<div class="mb-3">
         		<label for="password" class="form-label">Password</label>
 				  	<input type="password" name="password" class="form-control" id="password" placeholder="Masukan password lengkap" required>
+				  	<div class="valid-feedback">
+				      Terlihat bagus!
+				    </div>
 					</div>
 		      <div class="modal-footer">
 		        <button type="reset" class="btn btn-dark" data-dismiss="modal">Reset</button>

@@ -3,7 +3,9 @@ session_start();
 require_once 'config/koneksi.php';
 require_once 'config/functions.php';
 
-error_reporting(0);
+if(!isset($_GET['p'])) {
+  error_reporting(0);  
+}
 
 if(!isset($_SESSION['id'])) {
   header("Location: login.php");
@@ -28,7 +30,16 @@ $page = $_GET['p'];
         case 'admin':
           echo "Kelola Admin";
           break;
-        
+        case 'jabatan':
+          echo "Halaman Jabatan";
+          break;
+        case 'jtambah':
+          echo "Halaman Tambah Jabatan";
+          break;
+        case 'jubah':
+          echo "Halaman Ubah Jabatan";
+          break;
+
         default:
           echo "Home";
           break;
@@ -41,6 +52,22 @@ $page = $_GET['p'];
 </head>
 <body>
 
+<?php 
+if($page == 'admin') {
+  $aktifAdmin = "active";
+}
+
+if($page == '') {
+  $aktifHome = "active";
+}
+
+if($page == 'jabatan') {
+  $masterAktif1 = 'active';
+  $tahunAktif = 'active';
+}
+
+?>
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
@@ -51,17 +78,17 @@ $page = $_GET['p'];
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<?= base_url(); ?>">Home</a>
+          <a class="nav-link <?= $aktifHome; ?>" aria-current="page" href="<?= base_url(); ?>">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?= base_url('index.php?p=admin'); ?>">Admin</a>
+          <a class="nav-link <?= $aktifAdmin; ?>" href="<?= base_url('index.php?p=admin'); ?>">Admin</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle <?= $masterAktif1; ?>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
             Data Pegawai
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="<?= base_url('index.php?p=jabatan') ?>">Jabatan</a></li>
+            <li><a class="dropdown-item <?= $tahunAktif; ?>" href="<?= base_url('index.php?p=jabatan') ?>">Jabatan</a></li>
             <li><a class="dropdown-item" href="<?= base_url('index.php?p=golongan') ?>">Golongan</a></li>
             <li><a class="dropdown-item" href="<?= base_url('index.php?p=pegawai') ?>">Pegawai</a></li>
             <li><a class="dropdown-item" href="<?= base_url('index.php?p=kpegawai') ?>">Kehadiran Pegawai</a></li>

@@ -18,3 +18,16 @@
       }, false)
     })
 })()
+
+
+function autoAnak()
+{
+  var status = document.getElementById('status').value;
+  if(status == 'Belum Menikah') {
+    document.getElementById('jml_anak').value = '0';
+    document.getElementById('jml_anak').setAttribute('readonly', '');
+  } else if(status == 'Menikah') {
+    document.getElementById('jml_anak').value;
+    document.getElementById('jml_anak').removeAttribute('readonly', '');
+  }
+}

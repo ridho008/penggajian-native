@@ -39,6 +39,24 @@ $page = $_GET['p'];
         case 'jubah':
           echo "Halaman Ubah Jabatan";
           break;
+        case 'golongan':
+          echo "Halaman Golongan";
+          break;
+        case 'gtambah':
+          echo "Halaman Tambah Golongan";
+          break;
+        case 'gubah':
+          echo "Halaman Ubah Golongan";
+          break;
+        case 'pegawai':
+          echo "Halaman Pegawai";
+          break;
+        case 'ptambah':
+          echo "Halaman Tambah Pegawai";
+          break;
+        case 'pubah':
+          echo "Halaman Ubah Pegawai";
+          break;
 
         default:
           echo "Home";
@@ -63,7 +81,17 @@ if($page == '') {
 
 if($page == 'jabatan') {
   $masterAktif1 = 'active';
-  $tahunAktif = 'active';
+  $jabatanAktif = 'active';
+}
+
+if($page == 'golongan') {
+  $masterAktif1 = 'active';
+  $golonganAktif = 'active';
+}
+
+if($page == 'pegawai') {
+  $masterAktif1 = 'active';
+  $pegawaiAktif = 'active';
 }
 
 ?>
@@ -88,9 +116,9 @@ if($page == 'jabatan') {
             Data Pegawai
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item <?= $tahunAktif; ?>" href="<?= base_url('index.php?p=jabatan') ?>">Jabatan</a></li>
-            <li><a class="dropdown-item" href="<?= base_url('index.php?p=golongan') ?>">Golongan</a></li>
-            <li><a class="dropdown-item" href="<?= base_url('index.php?p=pegawai') ?>">Pegawai</a></li>
+            <li><a class="dropdown-item <?= $jabatanAktif; ?>" href="<?= base_url('index.php?p=jabatan') ?>">Jabatan</a></li>
+            <li><a class="dropdown-item <?= $golonganAktif; ?>" href="<?= base_url('index.php?p=golongan') ?>">Golongan</a></li>
+            <li><a class="dropdown-item <?= $pegawaiAktif; ?>" href="<?= base_url('index.php?p=pegawai') ?>">Pegawai</a></li>
             <li><a class="dropdown-item" href="<?= base_url('index.php?p=kpegawai') ?>">Kehadiran Pegawai</a></li>
             <li><a class="dropdown-item" href="<?= base_url('index.php?p=gpegawai') ?>">Gaji Pegawai</a></li>
             <li><hr class="dropdown-divider"></li>

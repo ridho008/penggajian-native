@@ -19,6 +19,30 @@ if($page) {
 		case 'jhapus':
 			require_once 'page/jabatan/jhapus.php';
 			break;
+		case 'golongan':
+			require_once 'page/golongan/index.php';
+			break;
+		case 'gtambah':
+			require_once 'page/golongan/gtambah.php';
+			break;
+		case 'gubah':
+			require_once 'page/golongan/gubah.php';
+			break;
+		case 'ghapus':
+			require_once 'page/golongan/ghapus.php';
+			break;
+		case 'pegawai':
+			require_once 'page/pegawai/index.php';
+			break;
+		case 'ptambah':
+			require_once 'page/pegawai/ptambah.php';
+			break;
+		case 'pubah':
+			require_once 'page/pegawai/pubah.php';
+			break;
+		case 'phapus':
+			require_once 'page/pegawai/phapus.php';
+			break;
 		
 		default:
 			require_once './index.php';

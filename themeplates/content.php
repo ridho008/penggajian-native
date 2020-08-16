@@ -43,6 +43,9 @@ if($page) {
 		case 'phapus':
 			require_once 'page/pegawai/phapus.php';
 			break;
+		case 'kpegawai':
+			require_once 'page/kehadiran_pegawai/kpegawai.php';
+			break;
 		
 		default:
 			require_once './index.php';

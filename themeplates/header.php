@@ -57,6 +57,9 @@ $page = $_GET['p'];
         case 'pubah':
           echo "Halaman Ubah Pegawai";
           break;
+        case 'kpegawai':
+          echo "Halaman Kehadiran Pegawai";
+          break;
 
         default:
           echo "Home";
@@ -94,6 +97,11 @@ if($page == 'pegawai') {
   $pegawaiAktif = 'active';
 }
 
+if($page == 'kpegawai') {
+  $masterAktif1 = 'active';
+  $kpegawaiAktif = 'active';
+}
+
 ?>
 
 <!-- Navbar -->
@@ -119,7 +127,7 @@ if($page == 'pegawai') {
             <li><a class="dropdown-item <?= $jabatanAktif; ?>" href="<?= base_url('index.php?p=jabatan') ?>">Jabatan</a></li>
             <li><a class="dropdown-item <?= $golonganAktif; ?>" href="<?= base_url('index.php?p=golongan') ?>">Golongan</a></li>
             <li><a class="dropdown-item <?= $pegawaiAktif; ?>" href="<?= base_url('index.php?p=pegawai') ?>">Pegawai</a></li>
-            <li><a class="dropdown-item" href="<?= base_url('index.php?p=kpegawai') ?>">Kehadiran Pegawai</a></li>
+            <li><a class="dropdown-item <?= $kpegawaiAktif; ?>" href="<?= base_url('index.php?p=kpegawai') ?>">Kehadiran Pegawai</a></li>
             <li><a class="dropdown-item" href="<?= base_url('index.php?p=gpegawai') ?>">Gaji Pegawai</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>

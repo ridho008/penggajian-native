@@ -152,12 +152,12 @@ if($page == 'gpegawai') {
             Laporan
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="<?= base_url('laporan/cetak_pegawai.php') ?>">Laporan Pegawai</a></li>
-            <li><a class="dropdown-item" href="<?= base_url('laporan/cetak_golongan.php') ?>">Laporan Golongan</a></li>
-            <li><a class="dropdown-item" href="<?= base_url('laporan/cetak_jabatan.php') ?>">Laporan Jabatan</a></li>
-            <li><a class="dropdown-item" href="<?= base_url('laporan/cetak_kpegawai.php') ?>">Laporan Kehadiran Pegawai</a></li>
-            <li><a class="dropdown-item" href="<?= base_url('laporan/cetak_lpegawai.php') ?>">Laporan Lembur Pegawai</a></li>
-            <li><a class="dropdown-item" href="<?= base_url('laporan/cetak_pgaji.php') ?>">Laporan Potongan Gaji</a></li>
+            <li><a class="dropdown-item" href="<?= base_url('laporan/cetak_pegawai.php') ?>" target="_blank">Laporan Pegawai</a></li>
+            <li><a class="dropdown-item" href="<?= base_url('laporan/cetak_golongan.php') ?>" target="_blank">Laporan Golongan</a></li>
+            <li><a class="dropdown-item" href="<?= base_url('laporan/cetak_jabatan.php') ?>" target="_blank">Laporan Jabatan</a></li>
+            <li><a class="dropdown-item" href="<?= base_url('laporan/cetak_kpegawai.php') ?>" target="_blank">Laporan Kehadiran Pegawai</a></li>
+            <li><a class="dropdown-item" href="<?= base_url('laporan/cetak_lpegawai.php') ?>" target="_blank">Laporan Lembur Pegawai</a></li>
+            <li><a class="dropdown-item" href="<?= base_url('laporan/cetak_pgaji.php') ?>" target="_blank">Laporan Potongan Gaji</a></li>
           </ul>
         </li>
       </ul>

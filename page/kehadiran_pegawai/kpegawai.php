@@ -1,21 +1,4 @@
-<?php 
-$tampilGaji = mysqli_query($konek, "SELECT * FROM master_gaji ORDER BY nip DESC") or die(mysqli_error($konek));
-
-if(isset($_POST['tambah'])) {
-	if(tambahAdmin($_POST) > 0) {
-		echo "<script>alert('Data Admin Berhasil Ditambahkan.');window.location='?p=admin';</script>";
-	} else {
-		echo "<script>alert('Data Admin Gagal Ditambahkan.');window.location='?p=admin';</script>";
-	}
-}
-
-if(isset($_POST['ubah'])) {
-	if(ubahAdmin($_POST) > 0) {
-		echo "<script>alert('Data Admin Berhasil Diubah.');window.location='?p=admin';</script>";
-	} else {
-		echo "<script>alert('Data Admin Gagal Diubah.');window.location='?p=admin';</script>";
-	}
-}
+<?php
 
 if((isset($_POST['bulan']) && $_POST['bulan'] != '') && isset($_POST['tahun']) && $_POST['tahun'] != '') {
 	$bulan = $_POST['bulan'];
@@ -77,22 +60,32 @@ if((isset($_POST['bulan']) && $_POST['bulan'] != '') && isset($_POST['tahun']) &
 		</div>
 		<div class="col-md-4">
 				<div class="mb-3">
-					<button type="submit" class="btn btn-primary">Tampilkan</button><br>
-					<a href="?p=ktambah" class="btn btn-warning">Input</a>
+					<button type="submit" class="btn btn-primary float-left mt-4 mr-1"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cursor-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					  <path fill-rule="evenodd" d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z"/>
+					</svg> Lihat</button><br>
+					<a href="?p=ktambah" class="btn btn-warning"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					  <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"/>
+					  <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"/>
+					</svg> Input Kehadiran Pegawai</a>
 				</div>
 		</div>
+		</form>
+	</div>
 		<div class="row">
-			<div class="col-md-4 offset-md-4">
+			<div class="col-md-4">
 				<div class="mb-3">
 					<div class="alert alert-info" role="alert">
-					  Bulan : <?= $bulan; ?>, Tahun : <?= $tahun; ?>
+						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						  <path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+						</svg>
+					  <b>Bulan : <?= $bulan; ?>, Tahun : <?= $tahun; ?></b>
 					</div>
 				</div>
 			</div>
 		</div>
-        	</form>
+        	
     	<!-- </div> -->
-    </div>
+    
     <!-- tabel -->
     <div class="row">
     	<div class="col-md">

@@ -46,6 +46,15 @@ if($page) {
 		case 'kpegawai':
 			require_once 'page/kehadiran_pegawai/kpegawai.php';
 			break;
+		case 'ktambah':
+			require_once 'page/kehadiran_pegawai/ktambah.php';
+			break;
+		case 'kedit':
+			require_once 'page/kehadiran_pegawai/kedit.php';
+			break;
+		case 'gpegawai':
+			require_once 'page/penggajian_pegawai/gpegawai.php';
+			break;
 		
 		default:
 			require_once './index.php';

@@ -149,3 +149,60 @@ function ubahPegawai($data)
 	mysqli_query($konek, "UPDATE pegawai SET nama_pegawai = '$nama', kode_jabatan = '$jabatan', kode_golongan = '$golongan', status = '$status', jumlah_anak = '$jml_anak' WHERE nip = '$nip'") or die(mysqli_error($konek));
 	return mysqli_affected_rows($konek);
 }
+
+
+// ---------------------------Data Kehadiran Pegawai-----------------------------------
+
+function tambahKehadiran($data)
+{
+	global $konek;
+	$nip = $data['nip'];
+
+	// menghitung berapa jumlah nip berada di DB
+	$count = count($data['nip']);
+
+	for ($i=0; $i < $count; $i++) {
+		$nip = $data['nip'][$i];
+		$bulan = $data['bulan'][$i];
+		$masuk = $data['masuk'][$i];
+		$sakit = $data['sakit'][$i];
+		$izin = $data['izin'][$i];
+		$alpha = $data['alpha'][$i];
+		$lembur = $data['lembur'][$i];
+		$potongan = $data['potongan'][$i];
+		
+		mysqli_query($konek, "INSERT INTO master_gaji VALUES('$bulan', '$nip', '$masuk', '$sakit', '$izin', '$alpha', '$lembur', '$potongan')") or die($konek);
+	}
+	return mysqli_affected_rows($konek);
+
+}
+
+function editKehadiran($data)
+{
+	global $konek;
+	$nip = $data['nip'];
+
+	// menghitung berapa jumlah nip berada di DB
+	$count = count($data['nip']);
+
+	for ($i=0; $i < $count; $i++) {
+		$nip = $data['nip'][$i];
+		$bulan = $data['bulan'][$i];
+		$masuk = $data['masuk'][$i];
+		$sakit = $data['sakit'][$i];
+		$izin = $data['izin'][$i];
+		$alpha = $data['alpha'][$i];
+		$lembur = $data['lembur'][$i];
+		$potongan = $data['potongan'][$i];
+		
+		mysqli_query($konek, "UPDATE master_gaji SET masuk = '$masuk', sakit = '$sakit', izin = '$izin', alpha = '$alpha', lembur = '$lembur', potongan = '$potongan' WHERE bulan = '$bulan' AND nip = '$nip'") or die($konek);
+	}
+	return mysqli_affected_rows($konek);
+
+}
+
+function rupiah($angka)
+{
+	$rupiah = "Rp. " . number_format($angka, 0, ',', '.');
+	return $rupiah;
+}

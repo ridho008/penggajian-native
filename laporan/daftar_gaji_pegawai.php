@@ -41,7 +41,7 @@ if((isset($_GET['bulan']) && $_GET['bulan'] != '') && isset($_GET['tahun']) && $
 	<tr>
 		<td>Bulan</td>
 		<td>:</td>
-		<td><?= $bulan; ?></td>
+		<td><?= bulanIndo($bulan); ?></td>
 	</tr>
 	<tr>
 		<td>Tahun</td>
@@ -114,7 +114,7 @@ if((isset($_GET['bulan']) && $_GET['bulan'] != '') && isset($_GET['tahun']) && $
 	<tr>
 		<td></td>
 		<td width="200">
-			<p>Jl. Pepaya, <?= date('d/m/Y'); ?> Bendahara,</p>
+			<p>Jl. Pepaya, <?= tglIndo(date('Y-m-d')); ?> Bendahara,</p>
 			<br>
 			<br>
 			<br>

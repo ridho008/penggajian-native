@@ -8,7 +8,7 @@ require_once '../config/functions.php';
 
 ?>
 <!DOCTYPE html>
-<html lang="en" moznomarginboxes>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Laporan Data Pegawai</title>

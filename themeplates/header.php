@@ -155,9 +155,18 @@ if($page == 'gpegawai') {
             <li><a class="dropdown-item" href="<?= base_url('laporan/cetak_pegawai.php') ?>" target="_blank">Laporan Pegawai</a></li>
             <li><a class="dropdown-item" href="<?= base_url('laporan/cetak_golongan.php') ?>" target="_blank">Laporan Golongan</a></li>
             <li><a class="dropdown-item" href="<?= base_url('laporan/cetak_jabatan.php') ?>" target="_blank">Laporan Jabatan</a></li>
-            <li><a class="dropdown-item" href="<?= base_url('laporan/cetak_kpegawai.php') ?>" target="_blank">Laporan Kehadiran Pegawai</a></li>
-            <li><a class="dropdown-item" href="<?= base_url('laporan/cetak_lpegawai.php') ?>" target="_blank">Laporan Lembur Pegawai</a></li>
-            <li><a class="dropdown-item" href="<?= base_url('laporan/cetak_pgaji.php') ?>" target="_blank">Laporan Potongan Gaji</a></li>
+            <!-- <li><a class="dropdown-item" href="<?= base_url('laporan/cetak_kpegawai.php') ?>" target="_blank">Laporan Kehadiran Pegawai</a></li> -->
+            <!-- <li><a class="dropdown-item" href="<?= base_url('laporan/cetak_lpegawai.php') ?>" target="_blank">Laporan Lembur Pegawai</a></li> -->
+            <li><a href="#" class="dropdown-item" data-toggle="modal" data-target="#kehadiranModal">
+              Laporan Kehadiran Pegawai
+            </a></li>
+            <li><a href="#" class="dropdown-item" data-toggle="modal" data-target="#lemburModal">
+              Laporan Lembur Pegawai
+            </a></li>
+            <li><a href="#" class="dropdown-item" data-toggle="modal" data-target="#potonganGajiModal">
+              Laporan Potongan Gaji
+            </a></li>
+            <!-- <li><a class="dropdown-item" href="<?= base_url('laporan/cetak_pgaji.php') ?>" target="_blank">Laporan Potongan Gaji</a></li> -->
           </ul>
         </li>
       </ul>
@@ -168,3 +177,183 @@ if($page == 'gpegawai') {
   </div>
 </nav>
 <!-- /Navbar -->
+
+
+<!-- Modal Laporan Lembur Pegawai -->
+<div class="modal fade" id="lemburModal" tabindex="-1" aria-labelledby="lemburModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="lemburModalLabel">Laporan Lembur Pegawai</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="laporan/cetak_laporan_lembur.php" method="post" class="needs-validation" novalidate target="_blank">
+          <div class="mb-3">
+              <label for="bulan" class="form-label">Bulan</label>
+              <select name="bulan" id="bulan" class="form-select">
+                <option value="">Pilih Bulan</option>
+                <option value="01">Januari</option>
+                <option value="02">Februari</option>
+                <option value="03">Maret</option>
+                <option value="04">April</option>
+                <option value="05">Mei</option>
+                <option value="06">Juni</option>
+                <option value="07">Juli</option>
+                <option value="08">Agustus</option>
+                <option value="09">September</option>
+                <option value="10">Oktober</option>
+                <option value="11">November</option>
+                <option value="12">Desember</option>
+              </select>
+            <div class="valid-feedback">
+              Terlihat bagus!
+            </div>
+          </div>
+          <div class="mb-3">
+                <label for="tahun" class="form-label">Tahun</label>
+                <select name="tahun" id="tahun" class="form-select">
+                <option value="">Pilih Tahun</option>
+              <?php 
+              $y = date('Y');
+              for ($i= 2018; $i < $y + 2; $i++) { ?>
+                <option value="<?= $i; ?>"><?= $i; ?></option>
+              <?php
+              }
+              ?>
+                </select>
+              <div class="valid-feedback">
+                Terlihat bagus!
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Lihat</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Laporan Potonga Gaji Pegawai -->
+<div class="modal fade" id="potonganGajiModal" tabindex="-1" aria-labelledby="potonganGajiModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="potonganGajiModalLabel">Laporan Potongan Gaji Pegawai</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="laporan/cetak_potongan_gaji.php" method="post" class="needs-validation" novalidate target="_blank">
+          <div class="mb-3">
+              <label for="bulan" class="form-label">Bulan</label>
+              <select name="bulan" id="bulan" class="form-select">
+                <option value="">Pilih Bulan</option>
+                <option value="01">Januari</option>
+                <option value="02">Februari</option>
+                <option value="03">Maret</option>
+                <option value="04">April</option>
+                <option value="05">Mei</option>
+                <option value="06">Juni</option>
+                <option value="07">Juli</option>
+                <option value="08">Agustus</option>
+                <option value="09">September</option>
+                <option value="10">Oktober</option>
+                <option value="11">November</option>
+                <option value="12">Desember</option>
+              </select>
+            <div class="valid-feedback">
+              Terlihat bagus!
+            </div>
+          </div>
+          <div class="mb-3">
+                <label for="tahun" class="form-label">Tahun</label>
+                <select name="tahun" id="tahun" class="form-select">
+                <option value="">Pilih Tahun</option>
+              <?php 
+              $y = date('Y');
+              for ($i= 2018; $i < $y + 2; $i++) { ?>
+                <option value="<?= $i; ?>"><?= $i; ?></option>
+              <?php
+              }
+              ?>
+                </select>
+              <div class="valid-feedback">
+                Terlihat bagus!
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Lihat</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Laporan Kehadiran Pegawai -->
+<div class="modal fade" id="kehadiranModal" tabindex="-1" aria-labelledby="kehadiranModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="kehadiranModalLabel">Laporan Kehadiran Pegawai</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="laporan/cetak_keha_pegawai.php" method="post" class="needs-validation" novalidate target="_blank">
+          <div class="mb-3">
+              <label for="bulan" class="form-label">Bulan</label>
+              <select name="bulan" id="bulan" class="form-select">
+                <option value="">Pilih Bulan</option>
+                <option value="01">Januari</option>
+                <option value="02">Februari</option>
+                <option value="03">Maret</option>
+                <option value="04">April</option>
+                <option value="05">Mei</option>
+                <option value="06">Juni</option>
+                <option value="07">Juli</option>
+                <option value="08">Agustus</option>
+                <option value="09">September</option>
+                <option value="10">Oktober</option>
+                <option value="11">November</option>
+                <option value="12">Desember</option>
+              </select>
+            <div class="valid-feedback">
+              Terlihat bagus!
+            </div>
+          </div>
+          <div class="mb-3">
+                <label for="tahun" class="form-label">Tahun</label>
+                <select name="tahun" id="tahun" class="form-select">
+                <option value="">Pilih Tahun</option>
+              <?php 
+              $y = date('Y');
+              for ($i= 2018; $i < $y + 2; $i++) { ?>
+                <option value="<?= $i; ?>"><?= $i; ?></option>
+              <?php
+              }
+              ?>
+                </select>
+              <div class="valid-feedback">
+                Terlihat bagus!
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Lihat</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
